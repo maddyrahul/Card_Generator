@@ -1,0 +1,236 @@
+<html>
+    <head>
+        <title>
+            ID Card generator
+        </title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <style>
+         .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+#space {
+    background-color: red;
+}
+
+#cardContainer {
+    float: left;
+    margin-top: 2%;
+    margin-left: 4%;
+}
+
+#dwn-btn {
+    width: 100%;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    text-align: left;
+}
+
+#img_card {
+    height: 150px;
+    width: 100%;
+}
+  #name{
+    background-color: yellow;
+      border: 3px solid red;
+      border-radius: 8px;
+      
+      width: 800px;
+      height: 28px;
+  }
+  #collegeName{
+    background-color:yellow;
+      border: 3px solid red;
+      border-radius: 8px;
+      
+      width: 800px;
+      height: 28px;
+  }
+  #location{
+    background-color:yellow;
+      border: 3px solid red;
+      border-radius: 8px;
+      
+      width: 800px;
+      height: 28px;
+  }
+  .text-center {
+    text-align: center;
+  }
+  
+  .section-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 5px solid black;
+  }
+  #img{
+      block-size: 80%;
+      height: 80%;
+  }
+  
+  .form-element {
+    margin: 5px;
+    min-width: 200px;
+    display: flex;
+  }
+  
+  .form-label {
+    min-width: 150px;
+  }
+  
+  .id-card-container {
+    display: none;
+  }
+  
+  .card-container {
+    width: 90vw;
+    height: 300px;
+    border-radius: 10px;
+    margin: 10px;
+    background: #fceeb5;
+    font-family: Abel, Arial, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  div ion-icon{
+    width: 3%;
+    font-size: 1.7rem;
+  }
+  
+  .card-wrapper {
+    width: 80vw;
+    height: 250px;
+    background-color: #fff;
+    background: linear-gradient(#f8f8f8, #fff);
+    box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    margin: 1.5rem;
+    display: flex;
+  }
+  
+  .user-card {
+    width: 30vw;
+    height: 100%;
+    position: relative;
+    background: linear-gradient(#92bca6, #a2ccb6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .general-information {
+    width: 60vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .user-photo {
+    font-size: 6em;
+  }
+  
+  .card-element {
+    margin-left: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .card-name {
+    font-size: 1.5rem;
+  }
+  
+  .college-name {
+    font-size: 1.2rem;
+  }
+  #submit{
+    background-color: pink;
+      border: 3px solid green;
+      border-radius: 8px;
+      
+      width: 820px;
+      height: 28px;
+
+  }
+
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: rgb(107,186,222);
+    background: -moz-linear-gradient(90deg, rgba(107,186,222,1) 0%, rgba(232,156,205,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(107,186,222,1) 0%, rgba(232,156,205,1) 100%);
+    background: linear-gradient(90deg, rgba(107,186,222,1) 0%, rgba(232,156,205,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6bbade",endColorstr="#e89ccd",GradientType=1); 
+}
+  
+        </style>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    </head>
+    <body>
+        <header class="text-center">
+                <h1>Get A Free Course</h1>
+        </header>
+        <div class="container">
+            <div class="section-container">
+                <center><form onsubmit="return false">
+                    <div class="form-element">
+                      <ion-icon name="person-outline"></ion-icon>
+                        <input type="text"  placeholder="Customer Name"  id="name"/>
+                    </div>
+                    <div class="form-element">
+                      <ion-icon name="reader-outline"></ion-icon>
+                    <input type="text"  placeholder="Course"  id="collegeName" />
+                    </div>
+                    <div class="form-element">
+                      <ion-icon name="person-circle-outline"></ion-icon>
+
+                        <input type="text"  placeholder="Author"  id="location" />
+                    </div>
+                    <center><button id="submit" onclick="generateCard()">Submit</button></center>
+                </form></center>
+                <div id="space">
+
+                </div>
+            </div> 
+        <script>
+
+
+function generateCard() {
+    var ele = document.getElementById('space');
+    var nameElement = document.getElementById("name").value;
+
+    var collegeNameValue = document.getElementById("collegeName").value;
+    var locationValue = document.getElementById("location").value;
+
+    
+
+var image=["download1.jpg","download2.jpg","download3.jpg","download4.jpg","download5.jpg","download6.jpg","download7.jpg","download2.jpg","download3.jpg","download6.jpg","download7.jpg"];
+
+if (nameElement == "" || collegeNameValue == "" || locationValue == "") {
+                alert("Fill All Required Field");
+            } else {
+                ele.innerHTML += `<div id="cardContainer"><div class="card" style="width: 17rem;"><img id="img_card"src="${image[Math.floor(Math.random()*10)]}" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Card title</h5><a href="#" class="badge rounded-pill bg-danger" id="dwn-btn">NAME :  ${nameElement}</a><br><br><a href="#" id="dwn-btn" class="badge rounded-pill bg-primary">Course :  ${collegeNameValue} </a><br><br><a href="#" class="badge rounded-pill bg-success" id="dwn-btn">Author :  ${locationValue} </a></div></div></div>`;
+            }
+
+}
+
+        </script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    </body>
+</html>
